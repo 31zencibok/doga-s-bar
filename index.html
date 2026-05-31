@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doğa's Mini Bar</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+}
+
+header{
+    text-align:center;
+    padding:50px 20px;
+    background:linear-gradient(135deg,#1e1e1e,#000);
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#bbb;
+}
+
+.search-container{
+    text-align:center;
+    margin:30px;
+}
+
+input{
+    width:90%;
+    max-width:500px;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    font-size:1rem;
+}
+
+.section-title{
+    margin:40px 30px 20px;
+    font-size:2rem;
+    color:#ffb347;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+.card{
+    background:#1c1c1c;
+    border-radius:15px;
+    padding:20px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:#ffb347;
+    margin-bottom:10px;
+}
+
+.ingredients{
+    color:#ddd;
+    margin-bottom:15px;
+}
+
+.instructions{
+    color:#aaa;
+    font-size:0.95rem;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🍸 Doğa's Mini Bar</h1>
+    <p class="subtitle">Private Cocktail Menu</p>
+</header>
+
+<div class="search-container">
+    <input type="text" id="searchBox" placeholder="Search cocktails...">
+</div>
+
+<h2 class="section-title">Signature Cocktails</h2>
+
+<div class="menu-grid" id="menu">
+
+<div class="card">
+    <h3>Passion Fruit Martini</h3>
+    <p class="ingredients">
+        Vodka • Passoã • Passion Fruit Puree • Lime Juice
+    </p>
+    <p class="instructions">
+        Shake with ice and strain into a chilled martini glass.
+    </p>
+</div>
+
+<div class="card">
+    <h3>Blue Lagoon</h3>
+    <p class="ingredients">
+        Vodka • Blue Curaçao • Lemon Juice
+    </p>
+    <p class="instructions">
+        Shake and serve over ice.
+    </p>
+</div>
+
+<div class="card">
+    <h3>Coconut Dream</h3>
+    <p class="ingredients">
+        Malibu • Coconut Puree • Pineapple Juice
+    </p>
+    <p class="instructions">
+        Shake with ice and serve in a hurricane glass.
+    </p>
+</div>
+
+<div class="card">
+    <h3>Melon Cooler</h3>
+    <p class="ingredients">
+        Vodka • Melon Liqueur • Lemon Juice
+    </p>
+    <p class="instructions">
+        Shake and serve over fresh ice.
+    </p>
+</div>
+
+</div>
+
+<h2 class="section-title">Classics</h2>
+
+<div class="menu-grid">
+
+<div class="card">
+    <h3>Margarita</h3>
+    <p class="ingredients">
+        Tequila • Triple Sec • Lime Juice
+    </p>
+    <p class="instructions">
+        Shake and strain into a salt-rimmed glass.
+    </p>
+</div>
+
+<div class="card">
+    <h3>Whiskey Sour</h3>
+    <p class="ingredients">
+        Whiskey • Lemon Juice • Sugar Syrup • Egg White
+    </p>
+    <p class="instructions">
+        Dry shake, then shake with ice.
+    </p>
+</div>
+
+<div class="card">
+    <h3>Espresso Martini</h3>
+    <p class="ingredients">
+        Vodka • Kahlúa • Espresso
+    </p>
+    <p class="instructions">
+        Shake hard and double strain.
+    </p>
+</div>
+
+<div class="card">
+    <h3>Daiquiri</h3>
+    <p class="ingredients">
+        White Rum • Lime Juice • Sugar Syrup
+    </p>
+    <p class="instructions">
+        Shake and strain into a coupe glass.
+    </p>
+</div>
+
+</div>
+
+<footer>
+    🍹 Drink responsibly
+</footer>
+
+<script>
+const searchBox = document.getElementById("searchBox");
+
+searchBox.addEventListener("keyup", function() {
+    const term = searchBox.value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+
+        if(text.includes(term)){
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+});
+</script>
+
+</body>
+</html>
